@@ -1,5 +1,10 @@
 /target
 
+.env
+.env.*
+.demon/
+*.age
+
 # --- BEGIN ARCANE MANAGED BLOCK ---
 # DANGER: Content inside this block is managed by Arcane.
 # Manual changes may be overwritten. Add custom rules ABOVE this block.
@@ -43,7 +48,3 @@ reference/**
 .arcane/shadow/
 .arcane/keys/
 # --- END ARCANE MANAGED BLOCK ---
-.env
-.env.*
-.demon/
-*.age
