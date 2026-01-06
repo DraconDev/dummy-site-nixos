@@ -43,3 +43,7 @@ reference/**
 .arcane/shadow/
 .arcane/keys/
 # --- END ARCANE MANAGED BLOCK ---
+.env
+.env.*
+.demon/
+*.age
