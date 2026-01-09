@@ -1,0 +1,23 @@
+# Arcane Deployment Manifest
+# This file tells Demon's GitOps Director how to deploy this project
+
+[app]
+name = "dummy-site"
+type = "nix"  # Built with Nix flake
+port = 8080
+
+[deployment]
+enabled = true  # Activate GitOps deployment
+strategy = "rolling"
+replicas = 1
+# target_group = "micro2"  # Uncomment to target specific server
+
+[ingress]
+domain = "dummy.dracon.uk"
+path = "/"
+ssl = true
+
+[build]
+# For Nix flakes, we use the default output
+dockerfile = ""  # Not used for Nix
+context = "."
