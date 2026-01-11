@@ -82,9 +82,15 @@ async fn main() {
     // Serve embedded HTML
     let app = Router::new().route("/", get(|| async { Html(HTML) }));
 
-    let addr = SocketAddr::from(([0, 0, 0, 0], 3000));
+    // Dynamic Port for Zero-Container
+    let port: u16 = std::env::var("PORT")
+        .unwrap_or_else(|_| "3000".to_string())
+        .parse()
+        .expect("PORT must be a number");
+
+    let addr = SocketAddr::from(([127, 0, 0, 1], port)); // Bind to localhost for security behind Caddy
     println!("🚀 Dummy Site Launching on http://{}", addr);
-    
+
     let listener = tokio::net::TcpListener::bind(addr).await.unwrap();
     axum::serve(listener, app).await.unwrap();
 }
