@@ -9,7 +9,7 @@ type = "nix"
 enabled = true
 strategy = "rolling"
 replicas = 1
-# target_group = "local" 
+target_group = "main1"
 
 [[ingress]]
 domain = "dummy.dracon.uk"
