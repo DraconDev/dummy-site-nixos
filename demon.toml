@@ -3,16 +3,15 @@
 
 [app]
 name = "dummy-site"
-type = "nix"  # Built with Nix flake
-port = 8080
+type = "nix"
 
 [deployment]
-enabled = true  # Activate GitOps deployment
+enabled = true
 strategy = "rolling"
 replicas = 1
-# target_group = "micro2"  # Uncomment to target specific server
+# target_group = "local" 
 
-[ingress]
+[[ingress]]
 domain = "dummy.dracon.uk"
 path = "/"
 ssl = true
